@@ -2,11 +2,17 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 
 export const options = {
-    vus: 10,
-    duration: '10s'
+    // vus: 1,
+    // duration: '30s'
+    stages:[
+        {
+            duration: '2h',
+            target: 10000
+        }
+    ]
 }
 
 export default function(){
     http.get('http://test.k6.io');
-    sleep(1)
+    sleep(1);
 }
